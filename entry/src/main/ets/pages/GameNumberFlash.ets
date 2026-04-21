@@ -1,5 +1,5 @@
 import { numberFlashTexts } from '../viewModel/translations';
-import { getLang, subscribeLang } from '../viewModel/langStore';
+import { getLang, resolveLang, subscribeLang } from '../viewModel/langStore';
 import { PromptAction } from '@kit.ArkUI';
 
 @Builder
@@ -19,10 +19,16 @@ export struct NumberFlashPage {
   private uiContext: UIContext = this.getUIContext();
   private promptAction: PromptAction = this.uiContext.getPromptAction();
   private hideTimer: number | null = null;
+  private unsubLang: (() => void) | null = null;
 
-  onPageHide() {
-    if (this.hideTimer) {
-      clearTimeout(this.hideTimer);
+  private showToast(message: string, duration: number): void {
+    try {
+      this.promptAction.showToast({
+        message: message,
+        duration: duration
+      });
+    } catch (e) {
+      console.error('NumberFlashPage: failed to show toast', e);
     }
   }
 
@@ -44,7 +50,7 @@ export struct NumberFlashPage {
   randomDigits(len: number): string {
     let n = '';
     for (let i = 0; i < len; i++) {
-      n += Math.floor(Date.now() % 10).toString();
+      n += Math.floor(Math.random() * 10).toString();
     }
     return n;
   }
@@ -53,18 +59,10 @@ export struct NumberFlashPage {
     if (this.userInput === this.number) {
       this.score += 10;
       this.level += 1;
-
-      this.promptAction.showToast({
-        message: numberFlashTexts[this.lang].correct,
-        duration: 20
-      });
+      this.showToast(numberFlashTexts[this.lang].correct, 20);
     } else {
       this.score -= 5;
-
-      this.promptAction.showToast({
-        message: numberFlashTexts[this.lang].wrong,
-        duration: 20
-      });
+      this.showToast(numberFlashTexts[this.lang].wrong, 20);
     }
 
     this.generate();
@@ -121,9 +119,19 @@ export struct NumberFlashPage {
     }
     .onShown(() => {
       this.generate();
-      subscribeLang((newLang: string) => {
-        this.lang = newLang;
+      this.unsubLang = subscribeLang((newLang: string) => {
+        this.lang = resolveLang(numberFlashTexts, newLang);
       });
+    })
+    .onHidden(() => {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer);
+        this.hideTimer = null;
+      }
+      if (this.unsubLang) {
+        this.unsubLang();
+        this.unsubLang = null;
+      }
     })
     .hideBackButton(true)
     .onReady((context: NavDestinationContext) => {
