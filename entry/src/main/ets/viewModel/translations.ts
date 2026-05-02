@@ -74,6 +74,13 @@ export const memoryGridTexts: Record<string, {
     moves: '步数',
     restart: '重新开始',
     completed: '在 {time} 秒内完成，共 {moves} 步！'
+  },
+  tr: {
+    title: 'Hafıza Izgarası',
+    time: 'Süre',
+    moves: 'Hamle',
+    restart: 'Yeniden Başlat',
+    completed: '{time} saniyede ve {moves} hamlede tamamlandı!'
   }
 };
 
@@ -84,12 +91,12 @@ export const indexTexts: Record<string, {
 }> = {
   en: {
     title: 'Mind Games',
-    start: 'Start Training',
+    start: 'Start',
     language: 'Language'
   },
   de: {
     title: 'Denkspiele',
-    start: 'Training Starten',
+    start: 'Start',
     language: 'Sprache'
   },
   fr: {
@@ -99,12 +106,12 @@ export const indexTexts: Record<string, {
   },
   es: {
     title: 'Juegos Mentales',
-    start: 'Iniciar Entrenamiento',
+    start: 'Iniciar',
     language: 'Idioma'
   },
   ar: {
     title: 'ألعاب ذهنية',
-    start: 'ابدأ التدريب',
+    start: 'ابدأ',
     language: 'اللغة'
   },
   th: {
@@ -114,7 +121,7 @@ export const indexTexts: Record<string, {
   },
   ja: {
     title: 'マインドゲーム',
-    start: 'トレーニング開始',
+    start: '開始',
     language: '言語'
   },
   ko: {
@@ -124,13 +131,18 @@ export const indexTexts: Record<string, {
   },
   ru: {
     title: 'Ментальные Игры',
-    start: 'Начать Тренировку',
+    start: 'Старт',
     language: 'Язык'
   },
   zh: {
     title: '脑力游戏',
-    start: '开始训练',
+    start: '开始',
     language: '语言'
+  },
+  tr: {
+    title: 'Beyin Oyunları',
+    start: 'Başla',
+    language: 'Dil'
   }
 };
 
@@ -138,34 +150,37 @@ export const languagePageTexts: Record<string, {
   title: string
 }> = {
   en: {
-    title: 'Select Language'
+    title: 'Language'
   },
   de: {
-    title: 'Sprache wählen'
+    title: 'Sprache'
   },
   fr: {
-    title: 'Choisir la langue'
+    title: 'Langue'
   },
   es: {
-    title: 'Seleccionar idioma'
+    title: 'Idioma'
   },
   ar: {
-    title: 'اختر اللغة'
+    title: 'اللغة'
   },
   th: {
     title: 'เลือกภาษา'
   },
   ja: {
-    title: '言語を選択'
+    title: '言語'
   },
   ko: {
-    title: '언어 선택'
+    title: '언어'
   },
   ru: {
-    title: 'Выберите язык'
+    title: 'Язык'
   },
   zh: {
-    title: '选择语言'
+    title: '语言'
+  },
+  tr: {
+    title: 'Dil'
   }
 };
 
@@ -289,6 +304,17 @@ export const colorFocusTexts: Record<string, {
     green: '绿色',
     blue: '蓝色',
     yellow: '黄色'
+  },
+  tr: {
+    title: 'Renk Odağı',
+    time: 'Süre',
+    score: 'Puan',
+    correct: 'Doğru!',
+    wrong: 'Yanlış!',
+    red: 'Kırmızı',
+    green: 'Yeşil',
+    blue: 'Mavi',
+    yellow: 'Sarı'
   }
 };
 
@@ -412,6 +438,17 @@ export const numberFlashTexts: Record<string, {
     score: '分数',
     level: '等级',
     inputPlaceholder: '请输入数字'
+  },
+  tr: {
+    title: 'Sayı Flaşı',
+    hidden: 'Gizli',
+    next: 'Sonraki',
+    enter: 'Gir',
+    correct: 'Doğru!',
+    wrong: 'Yanlış!',
+    score: 'Puan',
+    level: 'Seviye',
+    inputPlaceholder: 'Sayıyı girin'
   }
 };
 
@@ -422,64 +459,70 @@ export const selectGameTexts: Record<string, {
   memoryBlock: string
 }> = {
   en: {
-    title: 'Choose a Game',
-    colorFocus: 'Color Focus',
-    numberFlash: 'Number Flash',
-    memoryBlock: 'Memory Block'
+    title: 'Games',
+    colorFocus: 'Colors',
+    numberFlash: 'Numbers',
+    memoryBlock: 'Memory'
   },
   de: {
-    title: 'Spiel wählen',
-    colorFocus: 'Farb Fokus',
-    numberFlash: 'Zahlenblitz',
-    memoryBlock: 'Memory Block'
+    title: 'Spiele',
+    colorFocus: 'Farben',
+    numberFlash: 'Zahlen',
+    memoryBlock: 'Memory'
   },
   fr: {
-    title: 'Choisir un jeu',
-    colorFocus: 'Focus Couleur',
-    numberFlash: 'Flash Numérique',
-    memoryBlock: 'Bloc Mémoire'
+    title: 'Jeux',
+    colorFocus: 'Couleurs',
+    numberFlash: 'Nombres',
+    memoryBlock: 'Mémoire'
   },
   es: {
-    title: 'Elegir un juego',
-    colorFocus: 'Enfoque de Color',
-    numberFlash: 'Destello Numérico',
-    memoryBlock: 'Bloque de Memoria'
+    title: 'Juegos',
+    colorFocus: 'Colores',
+    numberFlash: 'Números',
+    memoryBlock: 'Memoria'
   },
   ar: {
-    title: 'اختر لعبة',
-    colorFocus: 'تركيز الألوان',
-    numberFlash: 'وميض الأرقام',
-    memoryBlock: 'كتلة الذاكرة'
+    title: 'ألعاب',
+    colorFocus: 'ألوان',
+    numberFlash: 'أرقام',
+    memoryBlock: 'ذاكرة'
   },
   th: {
-    title: 'เลือกเกม',
-    colorFocus: 'โฟกัสสี',
-    numberFlash: 'แฟลชตัวเลข',
-    memoryBlock: 'บล็อกความจำ'
+    title: 'เกม',
+    colorFocus: 'สี',
+    numberFlash: 'ตัวเลข',
+    memoryBlock: 'ความจำ'
   },
   ja: {
-    title: 'ゲームを選択',
-    colorFocus: 'カラーフォーカス',
-    numberFlash: 'ナンバーフラッシュ',
-    memoryBlock: 'メモリーブロック'
+    title: 'ゲーム',
+    colorFocus: '色',
+    numberFlash: '数字',
+    memoryBlock: '記憶'
   },
   ko: {
-    title: '게임 선택',
-    colorFocus: '색상 집중',
-    numberFlash: '숫자 플래시',
-    memoryBlock: '메모리 블록'
+    title: '게임',
+    colorFocus: '색상',
+    numberFlash: '숫자',
+    memoryBlock: '기억'
   },
   ru: {
-    title: 'Выберите игру',
-    colorFocus: 'Цветовой Фокус',
-    numberFlash: 'Числовая Вспышка',
-    memoryBlock: 'Блок Памяти'
+    title: 'Игры',
+    colorFocus: 'Цвета',
+    numberFlash: 'Числа',
+    memoryBlock: 'Память'
   },
   zh: {
-    title: '选择游戏',
-    colorFocus: '颜色专注',
-    numberFlash: '数字闪现',
-    memoryBlock: '记忆方块'
+    title: '游戏',
+    colorFocus: '颜色',
+    numberFlash: '数字',
+    memoryBlock: '记忆'
+  },
+  tr: {
+    title: 'Oyunlar',
+    colorFocus: 'Renkler',
+    numberFlash: 'Sayılar',
+    memoryBlock: 'Hafıza'
   }
 };
 
